@@ -6,6 +6,10 @@
 
 Merge package.json using local, base, and remote
 
+* Preserves ordering
+* Follows SemVer
+* Uses best guess to resolve conflicts
+
 ```js
 const mergePackageJson = require('merge-package.json');
 
