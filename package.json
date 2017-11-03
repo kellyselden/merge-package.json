@@ -1,0 +1,41 @@
+{
+  "name": "merge-package.json",
+  "version": "0.0.0",
+  "description": "Merge package.json using local, base, and remote",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha test/**/*-test.js",
+    "posttest": "npm run lint",
+    "prelint": "eslint --version",
+    "lint": "eslint bin src test",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kellyselden/merge-package.json.git"
+  },
+  "keywords": [
+    "rfc6902",
+    "semver",
+    "three-way-merger"
+  ],
+  "author": "Kelly Selden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kellyselden/merge-package.json/issues"
+  },
+  "homepage": "https://github.com/kellyselden/merge-package.json#readme",
+  "dependencies": {
+    "rfc6902-ordered": "^2.1.0",
+    "three-way-merger": "^0.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.10.0",
+    "eslint-config-sane": "^0.2.1",
+    "eslint-plugin-mocha": "^4.11.0",
+    "fixture-skipper": "^1.2.0",
+    "fixturify": "^0.3.4",
+    "mocha": "^4.0.1"
+  }
+}
