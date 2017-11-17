@@ -34,7 +34,7 @@
     "eslint": "^4.10.0",
     "eslint-config-sane": "^0.3.0",
     "eslint-plugin-mocha": "^4.11.0",
-    "eslint-plugin-prefer-let": "kellyselden/eslint-plugin-prefer-let",
+    "eslint-plugin-prefer-let": "^1.0.1",
     "fixture-skipper": "^1.2.0",
     "fixturify": "^0.3.4",
     "mocha": "^4.0.1"
