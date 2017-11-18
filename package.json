@@ -7,7 +7,7 @@
     "test": "mocha test/**/*-test.js",
     "posttest": "npm run lint",
     "prelint": "eslint --version",
-    "lint": "eslint bin src test",
+    "lint": "eslint src test",
     "lint:fix": "npm run lint -- --fix"
   },
   "repository": {
