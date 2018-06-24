@@ -1,6 +1,6 @@
 'use strict';
 
-const EOL = require('os').EOL;
+const { EOL } = require('os');
 const ThreeWayMerger = require('three-way-merger');
 const rfc6902 = require('rfc6902-ordered');
 
