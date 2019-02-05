@@ -10,6 +10,21 @@ Merge package.json using local, base, and remote
 * Follows SemVer
 * Uses best guess to resolve conflicts
 
+### CLI
+
+```
+npm install --global merge-package.json
+```
+
+Then just run `merge-package-json` in a directory with merge conflicts in
+`package.json`.  It will write the merged output back to `package.json`.
+
+### Node API
+
+```
+npm install --save merge-package.json
+```
+
 ```js
 const mergePackageJson = require('merge-package.json');
 
