@@ -4,7 +4,7 @@
   "description": "Merge package.json using local, base, and remote",
   "main": "src/index.js",
   "bin": {
-    "merge-package-json": "src/cli.js"
+    "merge-package.json": "src/cli.js"
   },
   "scripts": {
     "test": "mocha test/**/*-test.js",

@@ -16,7 +16,7 @@ Merge package.json using local, base, and remote
 npm install --global merge-package.json
 ```
 
-Then just run `merge-package-json` in a directory with merge conflicts in
+Then just run `merge-package.json` in a directory with merge conflicts in
 `package.json`.  It will write the merged output back to `package.json`.
 
 ### Node API
