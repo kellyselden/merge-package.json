@@ -1,0 +1,114 @@
+{
+  "name": "0-60",
+  "version": "0.0.0-development",
+  "description": "clone a skeleton repo and set up CI build as fast as possible",
+  "main": "index.js",
+  "module": "es/index.js",
+  "modules.root": "es",
+  "sideEffects": false,
+  "scripts": {
+    "lint": "eslint src test --cache",
+    "lint:fix": "eslint --fix src test --cache",
+    "lint:watch": "esw --watch src test --cache",
+    "prettier": "prettier --write src/**/*.js test/**/*.js",
+    "prettier:check": "prettier --list-different src/**/*.js test/**/*.js",
+    "flow": "flow",
+    "flow:coverage": "for file in src/**.js test/**.js; do echo $file; flow coverage $file; done",
+    "flow:watch": "flow-watch -e js,js.flow,flowconfig --ignore es/ --ignore node_modules/ --watch .flowconfig --watch src/ --watch test/",
+    "clean": "rimraf es lib $(cd src; ls) *.js.flow",
+    "build": "npm run clean && babel src --out-dir es && flow-copy-source -v src/ es && BABEL_ENV=es5 babel src --out-dir . && flow-copy-source -v src/ .",
+    "test": "NODE_ENV=production BABEL_ENV=es5 mocha $npm_package_config_mocha && NODE_ENV=production BABEL_ENV=coverage nyc --reporter=lcov --reporter=text mocha $npm_package_config_mocha",
+    "test:watch": "NODE_ENV=production BABEL_ENV=test mocha --watch $npm_package_config_mocha",
+    "codecov": "nyc report --reporter=text-lcov > coverage.lcov; codecov",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "precommit": "npm run lint && npm run prettier:check && flow",
+    "prepush": "npm test",
+    "prepublishOnly": "npm run clean && npm run lint && flow && npm test && npm run build",
+    "open:coverage": "open coverage/lcov-report/index.html",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "bin": {
+    "060": "cli.js",
+    "0-60": "cli.js"
+  },
+  "config": {
+    "mocha": "-r babel-register ./test/**/*.js",
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jedwards1211/0-60.git"
+  },
+  "author": "Andy Edwards",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jedwards1211/0-60/issues"
+  },
+  "homepage": "https://github.com/jedwards1211/0-60#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^6.0.2",
+    "@commitlint/config-conventional": "^6.0.2",
+    "@jedwards1211/commitlint-config": "^1.0.0",
+    "@jedwards1211/eslint-config": "^2.0.0",
+    "@jedwards1211/eslint-config-flow": "^1.0.3",
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-istanbul": "^4.0.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-register": "^6.23.0",
+    "chai": "^4.1.2",
+    "chai-subset": "^1.6.0",
+    "codecov": "^3.0.0",
+    "copy": "^0.3.0",
+    "eslint": "^3.15.0",
+    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-watch": "^3.0.0",
+    "flow-bin": "^0.85.0",
+    "flow-copy-source": "^1.2.1",
+    "flow-watch": "^1.1.0",
+    "husky": "^0.14.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.1.0",
+    "nyc": "^11.4.1",
+    "prettier": "^1.15.1",
+    "prettier-eslint": "^8.8.2",
+    "rimraf": "^2.6.0",
+    "semantic-release": "^15.1.4",
+    "travis-deploy-once": "^4.3.1"
+  },
+  "dependencies": {
+    "@octokit/rest": "^15.13.0",
+    "es6-promisify": "^6.0.0",
+    "fs-extra": "^7.0.0",
+    "glob": "^7.1.3",
+    "globby": "^8.0.1",
+    "inquirer": "^6.2.0",
+    "js-yaml": "^3.12.0",
+    "lodash": "^4.17.11",
+    "promisify-child-process": "^3.1.0",
+    "semantic-release-cli": "^4.0.8",
+    "superagent": "^4.0.0-beta.5",
+    "travis-ci": "^2.2.0"
+  }
+}

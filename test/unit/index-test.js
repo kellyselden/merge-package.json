@@ -6,7 +6,7 @@ const fixturify = require('fixturify');
 const fixtureSkipper = require('fixture-skipper');
 const mergePackageJson = require('../../src');
 
-const fixturesPath = 'test/fixtures';
+const fixturesPath = path.resolve(__dirname, 'fixtures');
 
 const forEachDir = fixtureSkipper(fixturesPath);
 
