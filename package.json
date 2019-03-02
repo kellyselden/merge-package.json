@@ -41,6 +41,6 @@
     "fixture-skipper": "^2.0.0",
     "fixturify": "^0.3.4",
     "mocha": "^6.0.0",
-    "renovate-config-standard": "^1.0.0"
+    "renovate-config-standard": "^2.0.0"
   }
 }
