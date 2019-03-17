@@ -1,5 +1,6 @@
 'use strict';
 
+const { describe } = require('../helpers/mocha');
 const { expect } = require('chai');
 const path = require('path');
 const fixturify = require('fixturify');
@@ -10,7 +11,7 @@ const fixturesPath = 'test/fixtures';
 
 const forEachDir = fixtureSkipper(fixturesPath);
 
-describe('Unit - index', function() {
+describe(function() {
   forEachDir((it, fixturesDir) => {
     it(fixturesDir, function() {
       let fixtures = fixturify.readSync(path.join(fixturesPath, fixturesDir));
