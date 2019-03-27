@@ -8,7 +8,6 @@ const dependencyKeys = [
   'dependencies',
   'devDependencies',
   'peerDependencies',
-  'bundledDependencies',
   'optionalDependencies'
 ];
 

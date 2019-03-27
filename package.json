@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "rfc6902-ordered": "^3.1.1",
-    "three-way-merger": "^0.5.5"
+    "three-way-merger": "^0.5.7"
   },
   "devDependencies": {
     "chai": "^4.1.2",
