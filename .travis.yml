@@ -8,3 +8,11 @@ before_install:
 - npm config set spin false
 - npm install -g npm
 - npm --version
+deploy:
+  provider: npm
+  email: kellyselden@gmail.com
+  api_key:
+    secure: F3t+l6SqF2oo8viqCIhZ2KHU6ojAJDOeA48y3RGojXBJC4tae9r5Pxtu//m7Izkz61WZ4Y9rYvmmO6eDqpk8b1EUouBasjg8gTa26H8GO0IvlCdDvTpzCa+ETwEO6GZRCzsL2xg8MHHMTUtd94a0Xrl4wtvrdhUaJzoAAVJHJBuPPsflr7jQWPFeteONtUw57iJv5d947RzJz4lbxmhOx6gXjuWdh3t260EdiJm58K5KKGbc0I4JsfI1eNxChnZeTYezZmpzgLOU6VEkw5aqv+UOM1Em5QGh5EdJy9K1eU0hpzvUPRcfZ858Crfbfgqg/pXZGMmPxD7nZgp05s2FOqly0hrK+pUNRxmKYliCj4wEDbbZm9K5ubMAgMSUO8RVAOekRoTzzbZWPsPpwolTfi2nO9BC1OgKR94CVirltVIDL66ffUEw704p73aju6KqhXtvEgm5l5fkbMhoxnx7qRio/dFsCiLRZMuJpPzrphISFzSnjPMd+CUxXNdv5su5nw/8jhBT32DJhrD6oWWMo/iIYUHCMp+DsietT2WXEApyl7PEGa/BTt+CI+3q3QrME1vQxVLfrsbK+jKYXQry3m2XZFJeNy97Ar9Hm8/4whS4p5izUWfPX2Jm/6fLDOTeYVKacXQBjYaihw8z1hbXzSjsZcI9yhZ4vRHtzadST+E=
+  on:
+    tags: true
+    repo: kellyselden/merge-package.json
