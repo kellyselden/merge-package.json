@@ -3,15 +3,25 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2017
   },
-  plugins: [
-    'mocha'
-  ],
-  extends: 'sane',
   env: {
     es6: true,
     node: true
   },
-  rules: {
-    'mocha/no-exclusive-tests': 'error'
-  }
+  extends: 'sane',
+  overrides: [
+    {
+      files: [
+        'test/**'
+      ],
+      env: {
+        mocha: true
+      },
+      plugins: [
+        'mocha'
+      ],
+      rules: {
+        'mocha/no-exclusive-tests': 'error'
+      },
+    }
+  ]
 };
