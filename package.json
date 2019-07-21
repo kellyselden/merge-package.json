@@ -36,7 +36,7 @@
     "chai": "^4.1.2",
     "eslint": "^5.0.0",
     "eslint-config-sane": "^0.8.0",
-    "eslint-plugin-mocha": "^5.0.0",
+    "eslint-plugin-mocha": "^6.0.0",
     "eslint-plugin-prefer-let": "^1.0.1",
     "fixture-skipper": "^2.0.0",
     "fixturify": "^1.0.0",
