@@ -7,7 +7,7 @@
     "test": "mocha test/**/*-test.js",
     "posttest": "npm run lint",
     "prelint": "eslint --version",
-    "lint": "eslint .",
+    "lint": "eslint . --ext js,json",
     "lint:fix": "npm run lint -- --fix"
   },
   "repository": {
@@ -30,13 +30,16 @@
   },
   "dependencies": {
     "rfc6902-ordered": "^3.1.1",
-    "three-way-merger": "^0.5.7"
+    "three-way-merger": "0.5.7"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "eslint": "^6.0.0",
-    "eslint-config-sane": "^0.8.0",
+    "eslint": "^6.1.0",
+    "eslint-config-sane": "0.8.5",
+    "eslint-config-sane-node": "0.2.2",
+    "eslint-plugin-json-files": "0.6.2",
     "eslint-plugin-mocha": "^6.0.0",
+    "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-prefer-let": "^1.0.1",
     "fixture-skipper": "^2.0.0",
     "fixturify": "^1.0.0",

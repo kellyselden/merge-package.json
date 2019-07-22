@@ -12,6 +12,7 @@ const fixturesPath = 'test/fixtures';
 const forEachDir = fixtureSkipper(fixturesPath);
 
 describe(function() {
+  // eslint-disable-next-line mocha/no-setup-in-describe
   forEachDir((it, fixturesDir) => {
     it(fixturesDir, function() {
       let fixtures = fixturify.readSync(path.join(fixturesPath, fixturesDir));

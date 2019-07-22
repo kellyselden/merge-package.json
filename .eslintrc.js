@@ -4,10 +4,9 @@ module.exports = {
     ecmaVersion: 2018
   },
   env: {
-    es6: true,
-    node: true
+    es6: true
   },
-  extends: 'sane',
+  extends: 'sane-node',
   overrides: [
     {
       files: [
@@ -19,9 +18,9 @@ module.exports = {
       plugins: [
         'mocha'
       ],
-      rules: {
-        'mocha/no-exclusive-tests': 'error'
-      },
+      extends: [
+        'plugin:mocha/recommended'
+      ]
     }
   ]
 };
