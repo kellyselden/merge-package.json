@@ -3,6 +3,7 @@
 const { EOL } = require('os');
 const ThreeWayMerger = require('three-way-merger');
 const rfc6902 = require('rfc6902-ordered');
+const { Range } = require('semver');
 
 const dependencyKeys = [
   'dependencies',
@@ -22,10 +23,47 @@ function sortObjectKeys(obj) {
   }, {});
 }
 
+// matches "^1.0.0" but not "^1.0.0 || ^3.0.0" or "1.0"
+function hasSimpleHint(rangeString) {
+  let range = new Range(rangeString);
+  let isSimpleRange = range.set.length === 1 && range.set[0].length === 2;
+  return isSimpleRange && !!getHint(rangeString);
+}
+
+// matches "1.0.0" and "1.0" but not "^1.0.0"
+function hasNoHint(rangeString) {
+  let range = new Range(rangeString);
+  let isPinned = range.set.length === 1 && range.set[0].length === 1;
+  return isPinned || !getHint(rangeString);
+}
+
+function getHint(rangeString) {
+  let matches = rangeString.match(/^ *[\^~]/);
+  return matches && matches[0];
+}
+
+function isHintLessRestrictive(fromHint, hint) {
+  return fromHint === '^' && hint === '~';
+}
+
 function applyDependencyOperations(operations, deps) {
   operations.add.forEach(dep => deps[dep.name] = dep.version);
   operations.remove.forEach(dep => delete deps[dep.name]);
-  operations.change.forEach(dep => deps[dep.name] = dep.version);
+  operations.change.forEach(dep => {
+    deps[dep.name] = dep.version;
+
+    if (hasSimpleHint(dep.fromVersion)) {
+      let fromHint = getHint(dep.fromVersion);
+      if (hasNoHint(dep.version)) {
+        deps[dep.name] = `${fromHint}${dep.version}`;
+      } else if (hasSimpleHint(dep.version)) {
+        let hint = getHint(dep.version);
+        if (isHintLessRestrictive(fromHint, hint)) {
+          deps[dep.name] = dep.version.replace(/[\^~]/, fromHint);
+        }
+      }
+    }
+  });
 }
 
 function mergeDependencyChanges(source, ours, theirs) {
