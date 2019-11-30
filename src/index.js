@@ -42,27 +42,29 @@ function getHint(rangeString) {
   return matches && matches[0];
 }
 
-function isHintLessRestrictive(fromHint, hint) {
-  return fromHint === '^' && hint === '~';
-}
-
-function applyDependencyOperations(operations, deps) {
+function applyDependencyOperations(operations, deps, sourceDeps) {
   operations.add.forEach(dep => deps[dep.name] = dep.version);
   operations.remove.forEach(dep => delete deps[dep.name]);
   operations.change.forEach(dep => {
-    deps[dep.name] = dep.version;
+    let {
+      name,
+      version,
+      fromVersion
+    } = dep;
+    let sourceVersion = sourceDeps[name];
 
-    if (hasSimpleHint(dep.fromVersion)) {
-      let fromHint = getHint(dep.fromVersion);
-      if (hasNoHint(dep.version)) {
-        deps[dep.name] = `${fromHint}${dep.version}`;
-      } else if (hasSimpleHint(dep.version)) {
-        let hint = getHint(dep.version);
-        if (isHintLessRestrictive(fromHint, hint)) {
-          deps[dep.name] = dep.version.replace(/[\^~]/, fromHint);
-        }
+    if (sourceVersion && hasSimpleHint(fromVersion)) {
+      let fromHint = getHint(fromVersion);
+      if (hasNoHint(sourceVersion) && hasNoHint(version)) {
+        version = `${fromHint}${version}`;
+      }
+      if (hasSimpleHint(sourceVersion) && hasSimpleHint(version)
+        && getHint(sourceVersion) === getHint(version)) {
+        version = version.replace(/[\^~]/, fromHint);
       }
     }
+
+    deps[name] = version;
   });
 }
 
@@ -78,7 +80,11 @@ function mergeDependencyChanges(source, ours, theirs) {
       result[dependencyKey] = {};
     }
 
-    applyDependencyOperations(mergeOperations[dependencyKey], result[dependencyKey]);
+    applyDependencyOperations(
+      mergeOperations[dependencyKey],
+      result[dependencyKey],
+      source[dependencyKey]
+    );
 
     if (!Object.keys(result[dependencyKey]).length) {
       delete result[dependencyKey];
