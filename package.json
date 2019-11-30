@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "rfc6902-ordered": "^4.0.0",
+    "semver": "^6.3.0",
     "three-way-merger": "0.5.7"
   },
   "devDependencies": {
