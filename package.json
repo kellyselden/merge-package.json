@@ -32,7 +32,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "rfc6902-ordered": "^4.0.0",
+    "rfc6902-ordered": "^4.0.3",
     "three-way-merger": "0.6.0"
   },
   "devDependencies": {
