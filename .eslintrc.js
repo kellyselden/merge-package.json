@@ -6,11 +6,13 @@ module.exports = {
   env: {
     es6: true
   },
-  extends: 'sane-node',
+  extends: [
+    'sane-node'
+  ],
   overrides: [
     {
       files: [
-        'test/**'
+        'test/**/*-test.js'
       ],
       env: {
         mocha: true
@@ -20,7 +22,10 @@ module.exports = {
       ],
       extends: [
         'plugin:mocha/recommended'
-      ]
+      ],
+      rules: {
+        'mocha/no-exclusive-tests': 'error'
+      }
     }
   ]
 };

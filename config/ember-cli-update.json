@@ -10,6 +10,15 @@
           "isBaseBlueprint": true
         }
       ]
+    },
+    {
+      "name": "@kellyselden/node-template",
+      "version": "0.3.1",
+      "blueprints": [
+        {
+          "name": "@kellyselden/node-template"
+        }
+      ]
     }
   ]
 }
