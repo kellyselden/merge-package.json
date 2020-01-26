@@ -48,7 +48,7 @@
     "renovate-config-standard": "^2.0.0"
   },
   "optionalDependencies": {
-    "@kellyselden/node-template": "0.6.0",
+    "@kellyselden/node-template": "0.7.1",
     "standard-node-template": "0.0.1"
   }
 }
