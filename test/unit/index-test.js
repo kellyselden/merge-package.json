@@ -1,7 +1,7 @@
 'use strict';
 
 const { describe } = require('../helpers/mocha');
-const { expect } = require('chai');
+const { expect } = require('../helpers/chai');
 const path = require('path');
 const fixturify = require('fixturify');
 const fixtureSkipper = require('fixture-skipper');
