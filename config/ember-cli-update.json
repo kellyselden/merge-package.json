@@ -16,7 +16,10 @@
       "version": "0.8.2",
       "blueprints": [
         {
-          "name": "@kellyselden/node-template"
+          "name": "@kellyselden/node-template",
+          "options": [
+            "--repo-slug=kellyselden/merge-package.json"
+          ]
         }
       ]
     }
