@@ -18,7 +18,8 @@
         {
           "name": "@kellyselden/node-template",
           "options": [
-            "--repo-slug=kellyselden/merge-package.json"
+            "--repo-slug=kellyselden/merge-package.json",
+            "--ci-provider=travis-ci"
           ]
         }
       ]
