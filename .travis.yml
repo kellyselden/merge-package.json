@@ -13,7 +13,7 @@ stages:
 - lint
 - test
 - name: ember-cli-update
-  if: branch = master AND type = pull_request
+  if: branch = master AND type = pull_request AND NOT fork
 - name: deploy
   if: tag IS present
 jobs:
