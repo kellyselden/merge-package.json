@@ -33,7 +33,7 @@
     "three-way-merger": "0.6.3"
   },
   "devDependencies": {
-    "@kellyselden/node-template": "1.4.3",
+    "@kellyselden/node-template": "1.4.5",
     "chai": "^4.3.4",
     "eslint": "^7.25.0",
     "eslint-config-sane": "^1.0.0",
