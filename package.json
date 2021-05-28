@@ -1,6 +1,6 @@
 {
   "name": "merge-package.json",
-  "version": "3.1.8",
+  "version": "4.0.0",
   "description": "Merge package.json using local, base, and remote",
   "main": "src",
   "files": [
