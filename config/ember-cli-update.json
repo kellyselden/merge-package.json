@@ -19,7 +19,7 @@
           "name": "@kellyselden/node-template",
           "options": [
             "--repo-slug=kellyselden/merge-package.json",
-            "--travis-ci",
+            "--github-actions",
             "--renovate"
           ]
         }
