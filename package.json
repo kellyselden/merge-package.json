@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "lint": "eslint . --ext js,json",
-    "test": "mocha --recursive"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
