@@ -45,7 +45,7 @@
     "fixture-skipper": "^2.0.0",
     "fixturify": "^3.0.0",
     "mocha": "^10.2.0",
-    "mocha-helpers": "^7.1.0",
+    "mocha-helpers": "^8.0.0",
     "renovate-config-standard": "2.1.2",
     "standard-node-template": "3.3.0"
   }
