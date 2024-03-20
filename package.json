@@ -40,7 +40,7 @@
     "eslint-config-sane-node": "^1.1.1",
     "eslint-plugin-json-files": "^4.1.0",
     "eslint-plugin-mocha": "^10.2.0",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-n": "^14.0.0",
     "eslint-plugin-prefer-let": "^3.0.1",
     "fixture-skipper": "^2.0.0",
     "fixturify": "^3.0.0",
