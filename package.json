@@ -29,7 +29,7 @@
     "node": ">=18.12"
   },
   "dependencies": {
-    "rfc6902-ordered": "^9.0.0",
+    "rfc6902-ordered": "^10.0.0",
     "three-way-merger": "0.6.3"
   },
   "devDependencies": {
