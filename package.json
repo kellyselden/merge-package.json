@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/kellyselden/merge-package.json#readme",
   "engines": {
-    "node": ">=18.12"
+    "node": ">=20.9"
   },
   "dependencies": {
     "rfc6902-ordered": "^9.0.0",
