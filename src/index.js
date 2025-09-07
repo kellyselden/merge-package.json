@@ -8,7 +8,7 @@ const dependencyKeys = [
   'dependencies',
   'devDependencies',
   'peerDependencies',
-  'optionalDependencies'
+  'optionalDependencies',
 ];
 
 function clone(obj) {
