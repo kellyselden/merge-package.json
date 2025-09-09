@@ -30,11 +30,10 @@
     "three-way-merger": "0.6.3"
   },
   "devDependencies": {
+    "@kellyselden/eslint-config": "^1.0.0",
     "@kellyselden/node-template": "6.11.0",
     "chai": "^4.5.0",
     "eslint": "^9.34.0",
-    "eslint-config-sane-node": "^6.0.0",
-    "eslint-plugin-mocha": "^10.5.0",
     "fixture-skipper": "^2.0.0",
     "fixturify": "^3.0.0",
     "mocha": "^11.7.1",
