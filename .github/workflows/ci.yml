@@ -14,11 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v5
+
     - uses: actions/setup-node@v5
       with:
         node-version: 20
 
     - run: npm ci
+
     - run: npm run lint
 
   test:
@@ -35,11 +37,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v5
+
     - uses: actions/setup-node@v5
       with:
         node-version: ${{ matrix.node }}
 
     - run: npm ci
+
     - run: npm test
 
   ember-cli-update:
@@ -53,6 +57,7 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
         token: ${{ secrets.GitHubToken }}
+
     - uses: actions/setup-node@v5
       with:
         node-version: 20
