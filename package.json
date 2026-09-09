@@ -42,6 +42,6 @@
     "standard-node-template": "7.3.0"
   },
   "engines": {
-    "node": ">=20.9"
+    "node": ">=22.11"
   }
 }
