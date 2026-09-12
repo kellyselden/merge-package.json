@@ -3,4 +3,7 @@
   "extends": [
     "github>kellyselden/renovate-config:default.json5",
   ],
+  "ignorePaths": [
+    "test/fixtures/**",
+  ],
 }
