@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "a": "1",
+    "a": "4",
     "b": "^1"
   },
   "devDependencies": {
